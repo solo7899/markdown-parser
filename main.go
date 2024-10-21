@@ -36,11 +36,11 @@ func main() {
 
 	// opening file
 	f, err := os.Open(args[1])
-	defer f.Close()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+	defer f.Close()
 
 	var lines []string
 	// reading line by line
@@ -136,7 +136,7 @@ func Parser() []string {
 func Write(lines []string) {
 	// writing to a file
 
-	f, err := os.OpenFile("file.html", os.O_RDWR|os.O_CREATE, 0644)
+	f, err := os.OpenFile("test.html", os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		panic(err)
 	}
